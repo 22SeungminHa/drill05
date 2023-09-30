@@ -37,7 +37,10 @@ while running:
     clear_canvas()
     TUK_ground.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
     hand_arrow.draw(hand_coord[0] + 25, hand_coord[1] - 26)
-    character.clip_draw(frame * 100, 100 * 1, 100, 100, character_coord[0], character_coord[1])
+    if (value[0] >= 0):
+        character.clip_draw(frame * 100, 100 * 1, 100, 100, character_coord[0], character_coord[1])
+    else:
+        character.clip_composite_draw(frame * 100, 100, 100, 100, 0, 'h', character_coord[0], character_coord[1], 100, 100)
     frame = (frame + 1) % 8
 
     character_coord = (character_coord[0] + value[0], character_coord[1] + value[1])
